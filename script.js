@@ -33,7 +33,7 @@ VIEW GEOJSON POINT DATA ON MAP
 let collisgeojson;
 
 // Fetch GeoJSON from URL and store response
-fetch('https://raw.githubusercontent.com/MissyZhang/GGR472-lab4/main/data/pedcyc_collision_06-21.geojson')
+fetch('https:///MissyZhang.github.io/GGR472-lab4/data/pedcyc_collision_06-21.geojson')
     .then(response => response.json())
     .then(response => {
         console.log(response); //Check response in console
@@ -115,47 +115,6 @@ map.on('load', () => {
 
 
 /*--------------------------------------------------------------------
-CREATE LEGEND
---------------------------------------------------------------------*/
-//Declare array variables for labels and colours
-const legendlabels = [
-    '1-5',
-    '6-15',
-    '16-25',
-    '>25'
-];
-
-const legendcolours = [
-    '#D7D7D9',
-    '#AFFFFF',
-    '#038C8C',
-    '#111D40'
-];
-
-//Declare legend variable using legend div tag
-const legend = document.getElementById('legend');
-
-//For each layer create a block to put the colour and label in
-legendlabels.forEach((label, i) => {
-    const colour = legendcolours[i];
-
-    const item = document.createElement('div'); 
-    const key = document.createElement('span'); 
-
-    key.className = 'legend-key'; 
-    key.style.backgroundColor = colour; 
-
-    const value = document.createElement('span'); 
-    value.innerHTML = `${label}`; 
-
-    item.appendChild(key); //add the key (colour cirlce) to the legend row
-    item.appendChild(value); //add the value to the legend row
-
-    legend.appendChild(item); //add row to the legend
-});
-
-
-/*--------------------------------------------------------------------
 ADD INTERACTIVITY
 --------------------------------------------------------------------*/
 
@@ -183,12 +142,15 @@ legendcheck.addEventListener('click', () => {
             'source': 'collis-hex-filtered',
             'paint': {
                 'fill-extrusion-color': [
-                    'step',
+                    'interpolate',
+                    ['linear'],
                     ['get', 'COUNT'],
-                    '#D7D7D9',
-                    5, '#AFFFFF',
-                    15, '#038C8C',
-                    25, '#111D40'
+                    1, '#2dc4b2',  // Low count color
+                    10, '#3bb3c3',
+                    20, '#669ec4',
+                    30, '#8b88b6',
+                    40, '#a2719b',
+                    50, '#aa5e79' // High count color
                 ],
                 'fill-extrusion-height': [
                     'interpolate', ['linear'], ['get', 'COUNT'],

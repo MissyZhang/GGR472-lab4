@@ -37,10 +37,10 @@
     border-radius: 3px;
     background: #313131; 
     bottom: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
     font: 12px/20px 'Georgia', serif;
-    padding: 10px;
+    padding: 15px;
     right: 10px;
     z-index: 1;
 }
@@ -49,12 +49,21 @@
     margin: 0 0 10px;
 }
 
-.legend-key {
+.row {
+    height: 12px;
+    width: 100%;
+}
+  
+.colors {
+    background: linear-gradient(to right, #2dc4b2, #3bb3c3, #669ec4, #8b88b6, #a2719b, #aa5e79);
+    margin-bottom: 5px;
+    width: 100%;
+}
+  
+.row .label {
+    width: 16%;
     display: inline-block;
-    border-radius: 50%; /*curve border to make a circle*/
-    height: 10px; /*size of circle*/
-    width: 10px;
-    margin-right: 5px; /*position of circle*/
+    text-align: center;
 }
 
 .map-data-container {
