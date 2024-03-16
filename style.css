@@ -6,3 +6,74 @@
     right: 0;
     width: 100%;
 }
+
+.map-search-container {
+    position: relative;
+    font: 14px/20px 'Georgia', serif;
+    background: #313131; 
+    border-radius: 3px;
+    top: 0;
+    left: 0;
+    width: 260px;
+    margin: 10px 0 0 10px;
+    padding: 10px;
+    overflow: visible;
+}
+
+#geocoder {
+    position: relative;
+    margin: 10px 0 10px;
+}
+
+#returnbutton {
+    position: relative;
+    margin: 10px 0 10px;
+    width: 100%;
+}
+
+.legend {
+    position: absolute;
+    display: none;
+    border-radius: 3px;
+    background: #313131; 
+    bottom: 0;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+    font: 12px/20px 'Georgia', serif;
+    padding: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.legend h4 {
+    margin: 0 0 10px;
+}
+
+.legend-key {
+    display: inline-block;
+    border-radius: 50%; /*curve border to make a circle*/
+    height: 10px; /*size of circle*/
+    width: 10px;
+    margin-right: 5px; /*position of circle*/
+}
+
+.map-data-container {
+    position: relative;
+    font: 14px/20px 'Georgia', serif;
+    width: 260px;
+    background: #313131; 
+    top: 0;
+    left: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    overflow: visible;
+}
+
+.mapboxgl-popup.custom-popup {
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    color: #313131;
+    border-radius: 4px;
+    padding: 10px;
+    max-width: 300px;
+}

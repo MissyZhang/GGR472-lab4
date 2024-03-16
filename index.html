@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GGR472 Lab 4</title>
+    <title>Traffic Collisions in Toronto</title>
     <!-- mapbox API -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css' rel='stylesheet' />
@@ -13,12 +13,47 @@
     <link rel="stylesheet" href="style.css">
     <!-- Turf.js -->
     <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+    <!-- mapbox geocoder plugin -->
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.2/mapbox-gl-geocoder.css"
+        type="text/css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
 
     <!-- MAP CONTAINER -->
     <div id='map' class='map'></div>
+
+    <!-- NAVIGATION ELEMENTS -->
+    <div class='map-search-container'>
+        <h4>Toronto Traffic Collisions (2006-2021)</h4>
+        <p>This map shows all traffic collisions events where a person was either Killed or Seriously Injured (KSI) in Toronto between 2006 and 2021.</p>
+        <p>(Data source: <a href="https://open.toronto.ca/dataset/motor-vehicle-collisions-involving-killed-or-seriously-injured-persons/">Open Data Toronto</a>)</p>
+
+        <label>Search for location</label>
+        <div id="geocoder" class="geocoder"></div>
+        <button type="button" class="btn btn-primary btn-sm" id="returnbutton">Return to full extent</button>
+    </div>
+
+    <!-- LEGEND -->
+    <div id='legend' class='legend'>
+        <h4>Number of Collisions</h4>
+    </div>
+
+    <!-- INTERACTIVITY -->
+    <div class='map-data-container'>
+        <!-- 1: Layer Checkbox -->
+        <p>The 3D hexgrid view visualizes collision counts by height within each hexagon.</p>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="legendcheck">
+            Show Hexgrid
+        </div>
 
     <script src="script.js"></script>
 
